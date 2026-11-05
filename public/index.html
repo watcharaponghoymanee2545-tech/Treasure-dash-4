@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#101827"><title>ล่าขุมทรัพย์ — เกมการ์ด 5 นาที</title>
+<style>
+:root{--bg:#101827;--panel:#1b2940;--panel2:#243650;--gold:#ffd166;--mint:#7de2c3;--text:#f4f7fb;--muted:#aab8cc;--red:#ff7b83}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#344b68 0,#101827 48%);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}button,input{font:inherit}button{border:0;border-radius:13px;padding:12px 16px;background:var(--gold);color:#202638;font-weight:800;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#344760;color:white}.danger{background:#7a3544;color:white}.wrap{max-width:900px;margin:auto;padding:20px 14px 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-weight:900;letter-spacing:.3px}.pill{border:1px solid #4b607a;border-radius:99px;padding:6px 10px;color:var(--mint);font-size:12px}.hero{text-align:center;padding:34px 12px 22px}.hero h1{font-size:clamp(32px,8vw,54px);margin:8px 0;color:var(--gold)}.hero p{color:var(--muted);margin:0}.panel{background:linear-gradient(145deg,#1e2d45,#172337);border:1px solid #344760;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 12px 32px #0003}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.field{width:100%;padding:13px;border-radius:12px;border:1px solid #52657e;background:#0f1a2a;color:white;margin:6px 0 12px}.hidden{display:none!important}.hint{color:var(--muted);font-size:13px;line-height:1.5}.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.player{background:#263850;border:1px solid #405674;border-radius:15px;padding:12px}.player.active{outline:2px solid var(--gold);background:#35465b}.score{font-size:27px;font-weight:900;color:var(--gold)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{min-height:176px;text-align:left;background:linear-gradient(155deg,#fff4d7,#f1d89e);color:#263044;border-radius:16px;padding:13px;display:flex;flex-direction:column;justify-content:space-between;border:2px solid #fff9;box-shadow:0 7px 0 #b28d4d,0 12px 22px #0003;position:relative;transition:transform .15s,box-shadow .15s}.card:active{transform:translateY(3px);box-shadow:0 3px 0 #b28d4d,0 6px 12px #0003}.card .tag{font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:#29384c;color:#fff;padding:4px 7px;border-radius:99px;align-self:flex-start}.card .cost{font-size:11px;font-weight:800;color:#77531c}.card b{font-size:15px}.card small{font-size:12px;line-height:1.4}.card .emoji{font-size:30px}.card b{font-size:15px}.card small{font-size:12px;line-height:1.35}.card:disabled{filter:grayscale(.5)}.status{padding:12px;border-radius:12px;background:#101d30;color:var(--mint);font-size:14px}.timer{font-size:24px;color:var(--gold);font-weight:900}.log{max-height:150px;overflow:auto;color:var(--muted);font-size:13px;line-height:1.6}.code{font-size:24px;letter-spacing:5px;font-weight:900;color:var(--gold);text-align:center;padding:8px}.footer{text-align:center;color:#7f90a7;font-size:12px;margin-top:26px}
+</style>
+<style id="premium-ui-v3">
+:root{
+ --bg:#091712;--panel:#10251d;--panel2:#173328;--gold:#e8c77a;--mint:#a8d8b5;
+ --text:#f7f2df;--muted:#b6c5b7;--red:#d98275;--line:rgba(232,199,122,.28);
+}
+*{box-sizing:border-box}
+body{
+ background:
+ radial-gradient(ellipse at 50% -18%,rgba(74,119,76,.42),transparent 55%),
+ radial-gradient(circle at 10% 80%,rgba(184,143,69,.10),transparent 30%),
+ linear-gradient(145deg,#07130f,#0c2118 55%,#08140f);
+ color:var(--text);font-family:ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;z-index:-1;
+ background-image:radial-gradient(rgba(232,199,122,.55) .7px,transparent .7px);background-size:24px 24px}
+.wrap{max-width:1120px;padding:22px 18px 54px}
+.top{padding:12px 16px;border:1px solid var(--line);border-radius:18px;
+ background:linear-gradient(110deg,rgba(20,49,36,.92),rgba(10,28,21,.88));
+ box-shadow:0 12px 36px #0005;backdrop-filter:blur(12px)}
+.brand{font-size:15px;letter-spacing:1.8px;color:var(--gold);text-shadow:0 2px 12px #d4a94c55}
+.pill{border-color:var(--line);background:#d7b76b12;color:#e9d79e}
+.hero{padding:48px 12px 30px}
+.hero h1{font-size:clamp(38px,7vw,68px);letter-spacing:1px;
+ background:linear-gradient(180deg,#fff2c4,#d5ad58 70%,#9a7133);
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+ text-shadow:0 10px 30px #d6aa4a20}
+.hero p{font-size:15px;color:#c3d0c2}
+.panel{background:linear-gradient(145deg,rgba(24,54,40,.96),rgba(12,34,25,.97));
+ border:1px solid var(--line);border-radius:22px;padding:20px;
+ box-shadow:0 18px 45px #0005,inset 0 1px #ffffff0b}
+.panel h2,.panel h3{color:#f1d99b;letter-spacing:.3px}
+button{border-radius:14px;padding:13px 18px;
+ background:linear-gradient(135deg,#f4dfa0,#c69b4d);color:#18251b;
+ box-shadow:0 5px 0 #87652f,0 10px 22px #0003;transition:transform .16s,filter .16s}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:active{transform:translateY(2px);box-shadow:0 2px 0 #87652f}
+.secondary{background:linear-gradient(135deg,#294d3a,#183526);color:#f2e7c6;
+ border:1px solid #75977a66;box-shadow:0 4px 0 #0a1a12}
+.danger{background:linear-gradient(135deg,#a94f47,#6d302e);color:#fff}
+.field{background:#081811;border:1px solid #78907866;border-radius:14px;color:#fff4d9}
+.field:focus{outline:2px solid #d9bb70;outline-offset:1px}
+.status{background:linear-gradient(90deg,#0a1b13,#122d20);border:1px solid #72966b55;
+ color:#c6e6c4;border-radius:14px}
+.players{gap:12px}
+.player{background:linear-gradient(145deg,#1d4431,#10291e);border:1px solid #b89a5b55;
+ border-radius:17px;box-shadow:inset 0 1px #ffffff0a,0 8px 18px #0002}
+.player.active{outline:2px solid var(--gold);background:linear-gradient(145deg,#34583b,#1b3828);
+ box-shadow:0 0 0 5px #e8c77a18,0 10px 24px #0004}
+.score{color:#f2d58a;text-shadow:0 2px 12px #e7bd5d44}
+.cards{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px}
+.card{
+ min-height:190px;align-items:center;text-align:center;gap:8px;
+ background:linear-gradient(155deg,#f8f0d8,#e4d2a5 78%,#c7ac70);
+ color:#26372b;border:1px solid #fff9d9;outline:1px solid #a9874e;
+ border-radius:19px;padding:15px 13px;
+ box-shadow:0 7px 0 #876b3d,0 13px 24px #0004,inset 0 0 0 4px #fff5;
+}
+.card .tag{align-self:center;background:#264432;color:#f4e6bd;border:1px solid #78936c;
+ letter-spacing:.8px;font-size:9px}
+.card .emoji{font-size:35px;width:62px;height:62px;display:grid;place-items:center;
+ border-radius:50%;background:linear-gradient(145deg,#fff9e8,#d8c28e);
+ border:1px solid #a58b55;box-shadow:inset 0 2px 6px #fff,0 4px 10px #5b4a2922}
+.card b{font-size:15px;color:#213b2b}
+.card small{font-size:12px;color:#52614e;min-height:34px}
+.card .cost{color:#87652f;font-size:10px;letter-spacing:.3px}
+.card:hover{transform:translateY(-4px);filter:brightness(1.04);box-shadow:0 10px 0 #876b3d,0 18px 28px #0004}
+.timer{color:#f4d98e;text-shadow:0 0 18px #e5bd5c44;font-variant-numeric:tabular-nums}
+.log{background:#091a12;border:1px solid #78936c44;border-radius:13px;padding:12px}
+.code{letter-spacing:7px;color:#f1d58d;text-shadow:0 0 15px #d9b76a44}
+.footer{color:#819887}
+#game .panel:first-of-type{padding:16px}
+#gameStatus{font-weight:650}
+@media(min-width:760px){
+ .wrap{padding-top:28px}
+ #game .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #game .panel{padding:24px}
+ #game .hero{padding-top:58px}
+}
+@media(max-width:520px){
+ .wrap{padding:12px 11px 34px}
+ .top{padding:10px 12px}
+ .brand{font-size:12px;letter-spacing:1px}
+ .pill{font-size:10px;padding:5px 8px}
+ .hero{padding:34px 8px 22px}
+ .panel{padding:15px;margin:11px 0;border-radius:18px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .card{min-height:178px;padding:12px 9px}
+ .card .emoji{width:54px;height:54px;font-size:30px}
+ .row{gap:8px}
+ button{padding:12px 13px}
+}
+</style>
+
+</head>
+<body><div class="wrap">
+<div class="top"><div class="brand">✦ TREASURE DASH</div><div class="pill">2–4 คน · ประมาณ 5 นาที</div></div>
+<section id="home"><div class="hero"><div style="font-size:52px;filter:drop-shadow(0 8px 18px #d8b45b55)">🏝️ ✦ 💎</div><h1>ล่าขุมทรัพย์</h1><p>สะสมแต้มดวง ปั่นป่วนคู่แข่ง และเอาชนะใน 5 นาที!</p></div>
+<div class="panel"><h2>เริ่มเล่น</h2><label class="hint">ชื่อที่ใช้ในเกม</label><input id="name" class="field" maxlength="14" placeholder="ใส่ชื่อของคุณ" value="ผู้เล่น">
+<div class="row"><button id="hostBtn">สร้างห้อง</button><button id="showJoin" class="secondary">เข้าร่วมห้อง</button></div>
+<div id="joinBox" class="hidden" style="margin-top:14px"><label class="hint">รหัสห้องจากเจ้าของห้อง</label><input id="roomInput" class="field" maxlength="8" placeholder="เช่น ABC123"><button id="joinBtn">เข้าห้องนี้</button></div>
+<div id="roomInfo" class="hidden"><div class="status">ส่งรหัสนี้ให้เพื่อน เพื่อให้เข้าห้องเดียวกัน</div><div id="roomCode" class="code"></div><div class="hint">เจ้าของห้องกดเริ่มเกมเมื่อมีผู้เล่น 2–4 คน</div><div id="lobbyPlayers" class="players" style="margin-top:12px"></div><button id="startBtn" class="hidden" style="width:100%;margin-top:14px">เริ่มเกม</button></div>
+<div style="margin-top:14px">
+<label class="hint" for="serverUrl">ที่อยู่เซิร์ฟเวอร์เกม (WebSocket)</label>
+<input id="serverUrl" class="field" placeholder="wss://ชื่อบริการ.onrender.com" autocomplete="url">
+<button id="saveServer" class="secondary" type="button">บันทึกเซิร์ฟเวอร์</button>
+</div>
+<div id="homeStatus" class="hint" style="margin-top:12px">เชื่อมต่อเซิร์ฟเวอร์ของเว็บไซต์นี้อัตโนมัติ หรือกำหนด WebSocket URL เอง</div></div>
+<div class="panel"><b>วิธีเล่น</b><p class="hint">แต่ละเทิร์นเลือกการ์ด 1 ใบเพื่อสะสมแต้มดวง ป่วนคู่แข่ง หรือป้องกันตัวเอง เกมจบเมื่อครบ 5 นาที หรือมีผู้เล่นถึง 15 แต้มดวง ใครมีแต้มดวงมากที่สุดชนะ</p></div></section>
+<section id="game" class="hidden"><div class="row" style="justify-content:space-between"><div><div class="hint">เวลาที่เหลือ</div><div id="timer" class="timer">05:00</div></div><div style="text-align:right"><div class="hint">รอบปัจจุบัน</div><b id="turnLabel">—</b></div></div>
+<div class="panel"><div id="board" class="players"></div></div><div class="panel"><div id="gameStatus" class="status">รอเริ่ม...</div><h3>เลือกการ์ด 1 ใบ</h3><div id="hand" class="cards"></div><div class="hint" style="margin-top:10px">การ์ด 3 ใบจะสุ่มให้ทุกเทิร์น เลือกได้ 1 ใบ · การ์ดป่วนมีผลแบบจำกัดเพื่อให้ทุกคนมีโอกาสชนะ</div></div>
+<div class="panel"><b>บันทึกเกม</b><div id="log" class="log"></div></div></section>
+<section id="result" class="hidden"><div class="hero"><div style="font-size:54px">🏆</div><h1>จบเกม!</h1><p id="winnerText"></p></div><div class="panel"><div id="finalBoard" class="players"></div><button id="backBtn" style="width:100%;margin-top:14px">กลับหน้าแรก</button></div></section>
+<div class="footer">TREASURE DASH · เกมผจญภัยการ์ดออนไลน์</div></div>
+
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+let ws=null, myId='', room='', isHost=false, players=[], turn=0, seconds=300, started=false, hand=[], logLines=[], connected=false, timer=null;
+const deck=[
+{e:'💎',n:'แร่ดวงดี',d:'รับ 2 แต้มดวง',t:'สะสม'},
+{e:'🍀',n:'ใบโคลเวอร์',d:'รับ 2 แต้มดวง',t:'สะสม'},
+{e:'🧲',n:'แม่เหล็กดูดดวง',d:'รับ 1 แต้ม และชิง 1 แต้มจากคู่แข่งที่นำอยู่',t:'ปั่นป่วน'},
+{e:'🦝',n:'แรคคูนมือไว',d:'ชิง 1 แต้มจากคู่แข่งที่นำอยู่',t:'ปั่นป่วน'},
+{e:'🛡️',n:'เกราะคุ้มดวง',d:'รับ 1 แต้ม และป้องกันการป่วน 1 ครั้ง',t:'ป้องกัน'},
+{e:'🎲',n:'ลูกเต๋าป่วน',d:'สุ่มรับ 0–3 แต้มดวง',t:'สุ่มเสี่ยง'},
+{e:'🌪️',n:'พายุส่งต่อ',d:'ทุกคนส่ง 1 แต้มให้ผู้เล่นถัดไป',t:'ปั่นป่วน'},
+{e:'🪤',n:'กับดักเหนียวหนึบ',d:'คู่แข่งที่นำอยู่เสีย 1 แต้ม คุณรับ 1 แต้ม',t:'ปั่นป่วน'},
+{e:'🎁',n:'กล่องเซอร์ไพรส์',d:'รับ 1–3 แต้มดวง',t:'สุ่มเสี่ยง'},
+{e:'🌀',n:'วาร์ปหนี',d:'รับ 1 แต้ม และล้างสถานะข้ามเทิร์น',t:'ป้องกัน'},
+{e:'🧤',n:'ถุงมือจอมฉก',d:'ชิงสูงสุด 2 แต้มจากคู่แข่งที่นำอยู่',t:'ปั่นป่วน'},
+{e:'🌈',n:'สายรุ้งนำโชค',d:'รับ 2 แต้ม ถ้าคุณอยู่อันดับท้ายรับเพิ่ม 1',t:'สะสม'},
+{e:'🧨',n:'ประทัดป่วน',d:'คู่แข่งที่มีแต้มมากกว่าคุณเสียคนละ 1 แต้ม คุณรับ 1',t:'ปั่นป่วน'},
+{e:'🪄',n:'คาถาคุ้มครอง',d:'รับ 1 แต้ม และป้องกันการป่วน 1 ครั้ง',t:'ป้องกัน'},
+{e:'☄️',n:'ดาวหางเสี่ยงโชค',d:'รับ 3 แต้ม แต่ข้ามเทิร์นถัดไป',t:'เสี่ยง'}
+];
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setStatus(t){$('homeStatus').textContent=t}
+function myName(){return ($('name').value.trim()||'ผู้เล่น').slice(0,14)}
+function wsUrl(){let v=$('serverUrl').value.trim()||localStorage.getItem('td_v4_ws')||'';if(!v&&location.host)v=(location.protocol==='https:'?'wss://':'ws://')+location.host;return v.replace(/\/+$/,'')}
+$('serverUrl').value=localStorage.getItem('td_v4_ws')||'';
+$('saveServer').onclick=()=>{let v=$('serverUrl').value.trim();if(!/^wss?:\/\//i.test(v)){setStatus('กรุณาใส่ WebSocket URL ที่ขึ้นต้นด้วย wss:// หรือ ws://');return}localStorage.setItem('td_v4_ws',v);setStatus('บันทึกที่อยู่เซิร์ฟเวอร์แล้ว')};
+function send(o){if(ws&&ws.readyState===WebSocket.OPEN)ws.send(JSON.stringify(o));else setStatus('ยังไม่ได้เชื่อมต่อเซิร์ฟเวอร์')}
+function connect(action,payload={}){return new Promise((resolve,reject)=>{const url=wsUrl();if(!url){reject(Error('ยังไม่ได้ตั้งค่า WebSocket URL'));return}
+if(ws&&ws.readyState===WebSocket.OPEN){send({action,...payload});resolve();return}
+try{ws=new WebSocket(url)}catch(e){reject(e);return}
+let settled=false;const timeout=setTimeout(()=>{if(!settled){settled=true;try{ws.close()}catch{}reject(Error('เซิร์ฟเวอร์ไม่ตอบสนอง กรุณาตรวจ URL หรือรอสักครู่'))}},15000);
+ws.onopen=()=>{connected=true;send({action,...payload});if(!settled){settled=true;clearTimeout(timeout);resolve()}};
+ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}handle(m)};
+ws.onerror=()=>{if(!settled){settled=true;clearTimeout(timeout);reject(Error('เชื่อมต่อเซิร์ฟเวอร์ไม่ได้'))}};
+ws.onclose=()=>{connected=false;if(started)setStatus('การเชื่อมต่อเซิร์ฟเวอร์หลุด กรุณาโหลดหน้าใหม่เพื่อเชื่อมต่ออีกครั้ง')};
+})}
+function handle(m){
+ if(m.type==='error'){setStatus(m.message||'เกิดข้อผิดพลาด');return}
+ if(m.type==='created'||m.type==='joined'){myId=m.playerId;room=m.room;isHost=m.isHost;setStatus(m.message||'เชื่อมต่อห้องแล้ว');$('roomInfo').classList.remove('hidden');$('roomCode').textContent=room;renderLobby(m.players||[]);return}
+ if(m.type==='lobby'){players=m.players||[];renderLobby(players);return}
+ if(m.type==='state'){let before=started;players=m.players||[];turn=m.turn||0;seconds=m.seconds??300;started=!!m.started;hand=m.hand||[];logLines=m.logLines||[];if(started){renderGame();if(before===false){$('result').classList.add('hidden')}}else if(before){showResult()}else renderLobby(players);return}
+ if(m.type==='ended'){started=false;players=m.players||players;showResult();return}
+ if(m.type==='room-closed'){setStatus('ห้องถูกปิดโดยเจ้าของห้อง');return}
+}
+function renderLobby(list){players=list;$('roomInfo').classList.remove('hidden');$('roomCode').textContent=room;$('lobbyPlayers').innerHTML=players.map(p=>`<div class="player">${esc(p.name)}${p.id===myId?' (คุณ)':''}</div>`).join('');$('startBtn').classList.toggle('hidden',!isHost||players.length<2||started);$('startBtn').disabled=players.length<2}
+$('hostBtn').onclick=async()=>{isHost=true;setStatus('กำลังเชื่อมต่อเซิร์ฟเวอร์...');try{await connect('create',{name:myName()})}catch(e){setStatus('สร้างห้องไม่สำเร็จ: '+e.message)}};
+$('showJoin').onclick=()=>$('joinBox').classList.toggle('hidden');
+$('joinBtn').onclick=async()=>{room=$('roomInput').value.trim().toUpperCase();if(!room){setStatus('กรุณาใส่รหัสห้อง');return}isHost=false;setStatus('กำลังเข้าร่วมห้อง '+room+' ...');try{await connect('join',{room,name:myName()})}catch(e){setStatus('เข้าห้องไม่สำเร็จ: '+e.message)}};
+$('startBtn').onclick=()=>send({action:'start'});
+function fmt(s){return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`}
+function renderGame(){if(!started)return;$('home').classList.add('hidden');$('game').classList.remove('hidden');$('timer').textContent=fmt(seconds);$('turnLabel').textContent=`${players[turn]?.name||'—'} กำลังเล่น`;$('board').innerHTML=players.map((p,i)=>`<div class="player ${i===turn?'active':''}"><div>${esc(p.name)} ${p.id===myId?'(คุณ)':''}</div><div class="score">🍀 ${p.stars}</div><div class="hint">${p.shield?'🛡️ มีโล่':''}${p.skip?' · ⏭️ ข้ามเทิร์น':''}</div></div>`).join('');$('gameStatus').textContent=players[turn]?.id===myId?'ถึงตาคุณแล้ว เลือกการ์ด 1 ใบ!':`รอ ${players[turn]?.name||'ผู้เล่น'} เลือกการ์ด`;$('log').innerHTML=logLines.slice(0,12).map(x=>'• '+esc(x)).join('<br>');if(players[turn]?.id===myId){$('hand').innerHTML=hand.map((idx,i)=>{let c=deck[idx];return `<button class="card" data-i="${i}"><span class="tag">${c.t}</span><span class="emoji">${c.e}</span><b>${c.n}</b><small>${c.d}</small><span class="cost">เลือกใช้การ์ดนี้ ›</span></button>`}).join('');document.querySelectorAll('.card').forEach(b=>b.onclick=()=>play(Number(b.dataset.i)))}else $('hand').innerHTML='<div class="hint">การ์ดจะแสดงเมื่อถึงเทิร์นของคุณ</div>'}
+function play(i){if(players[turn]?.id!==myId||!Number.isInteger(i))return;send({action:'play',slot:i})}
+function showResult(){let sorted=[...players].sort((a,b)=>b.stars-a.stars);$('game').classList.add('hidden');$('result').classList.remove('hidden');$('winnerText').textContent=(sorted[0]?.name||'ผู้เล่น')+' เป็นผู้ชนะ!';$('finalBoard').innerHTML=sorted.map((p,i)=>`<div class="player"><div>${i===0?'🏆 ':''}${esc(p.name)}</div><div class="score">🍀 ${p.stars}</div></div>`).join('')}
+$('backBtn').onclick=()=>location.reload();
+window.addEventListener('beforeunload',()=>{try{send({action:'leave'})}catch{}});
+})();
+</script></body></html>
