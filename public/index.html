@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#101827"><title>TREASURE DASH — เกมการ์ดออนไลน์</title>
+<meta name="theme-color" content="#f5f6f2"><title>TREASURE DASH — เกมการ์ดออนไลน์</title>
 <style>
 :root{--bg:#101827;--panel:#1b2940;--panel2:#243650;--gold:#ffd166;--mint:#7de2c3;--text:#f4f7fb;--muted:#aab8cc;--red:#ff7b83}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#344b68 0,#101827 48%);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}button,input{font:inherit}button{border:0;border-radius:13px;padding:12px 16px;background:var(--gold);color:#202638;font-weight:800;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#344760;color:white}.danger{background:#7a3544;color:white}.wrap{max-width:900px;margin:auto;padding:20px 14px 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-weight:900;letter-spacing:.3px}.pill{border:1px solid #4b607a;border-radius:99px;padding:6px 10px;color:var(--mint);font-size:12px}.hero{text-align:center;padding:34px 12px 22px}.hero h1{font-size:clamp(32px,8vw,54px);margin:8px 0;color:var(--gold)}.hero p{color:var(--muted);margin:0}.panel{background:linear-gradient(145deg,#1e2d45,#172337);border:1px solid #344760;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 12px 32px #0003}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.field{width:100%;padding:13px;border-radius:12px;border:1px solid #52657e;background:#0f1a2a;color:white;margin:6px 0 12px}.hidden{display:none!important}.hint{color:var(--muted);font-size:13px;line-height:1.5}.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.player{background:#263850;border:1px solid #405674;border-radius:15px;padding:12px}.player.active{outline:2px solid var(--gold);background:#35465b}.score{font-size:27px;font-weight:900;color:var(--gold)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{min-height:176px;text-align:left;background:linear-gradient(155deg,#fff4d7,#f1d89e);color:#263044;border-radius:16px;padding:13px;display:flex;flex-direction:column;justify-content:space-between;border:2px solid #fff9;box-shadow:0 7px 0 #b28d4d,0 12px 22px #0003;position:relative;transition:transform .15s,box-shadow .15s}.card:active{transform:translateY(3px);box-shadow:0 3px 0 #b28d4d,0 6px 12px #0003}.card .tag{font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:#29384c;color:#fff;padding:4px 7px;border-radius:99px;align-self:flex-start}.card .cost{font-size:11px;font-weight:800;color:#77531c}.card b{font-size:15px}.card small{font-size:12px;line-height:1.4}.card .emoji{font-size:30px}.card b{font-size:15px}.card small{font-size:12px;line-height:1.35}.card:disabled{filter:grayscale(.5)}.status{padding:12px;border-radius:12px;background:#101d30;color:var(--mint);font-size:14px}.timer{font-size:24px;color:var(--gold);font-weight:900}.log{max-height:150px;overflow:auto;color:var(--muted);font-size:13px;line-height:1.6}.code{font-size:24px;letter-spacing:5px;font-weight:900;color:var(--gold);text-align:center;padding:8px}.footer{text-align:center;color:#7f90a7;font-size:12px;margin-top:26px}
 </style>
@@ -97,6 +97,62 @@ button:active{transform:translateY(2px);box-shadow:0 2px 0 #87652f}
  .row{gap:8px}
  button{padding:12px 13px}
 }
+</style>
+
+
+<style id="minimal-modern-refresh">
+:root{--bg:#f4f6f2;--panel:#ffffff;--panel2:#eef2ec;--gold:#c28b35;--mint:#34765d;--text:#202a25;--muted:#77827b;--red:#bd5b53;--line:#e1e7e0;--shadow:0 12px 32px rgba(27,45,35,.07)}
+*{box-sizing:border-box}
+body{background:linear-gradient(180deg,#f8f9f6 0%,#eef2ed 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.01em}
+body:before{display:none}
+.wrap{max-width:1080px;padding:22px 20px 48px}
+.top{position:sticky;top:10px;z-index:5;padding:13px 18px;border:1px solid rgba(220,228,220,.9);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 6px 24px rgba(28,44,34,.06);backdrop-filter:blur(16px)}
+.brand{font-size:14px;letter-spacing:2px;color:#285d49;text-shadow:none}
+.pill{border:1px solid #dce8df;background:#f1f7f2;color:#34765d;font-weight:700}
+.hero{padding:48px 12px 30px}
+.hero>div:first-child{filter:none!important}
+.hero h1{font-size:clamp(34px,6vw,58px);letter-spacing:-1.8px;color:#24362c;background:none;-webkit-text-fill-color:initial;text-shadow:none}
+.hero p{font-size:15px;color:#718078}
+.panel{background:#fff;border:1px solid #e2e8e1;border-radius:22px;padding:22px;margin:14px 0;box-shadow:var(--shadow)}
+.panel h2,.panel h3{color:#273a30;letter-spacing:-.3px}
+button{border-radius:13px;padding:13px 18px;background:#2f6c52;color:white;box-shadow:0 3px 0 #24553f,0 8px 18px rgba(36,85,63,.12);font-weight:750;transition:transform .16s,background .16s}
+button:hover{filter:none;background:#285d47;transform:translateY(-1px)}
+button:active{transform:translateY(1px);box-shadow:0 1px 0 #24553f}
+button:disabled{opacity:.42}
+.secondary{background:#f0f4ef;color:#385647;border:1px solid #dce6dd;box-shadow:none}
+.secondary:hover{background:#e7eee8}
+.danger{background:#b95750;color:white;box-shadow:0 3px 0 #93433e}
+.field{background:#fbfcfa;border:1px solid #dce4dc;border-radius:13px;color:#24332a;padding:14px}
+.field:focus{outline:3px solid #dcebe0;border-color:#6b9a7e}
+.status{background:#f1f7f2;border:1px solid #dce9df;color:#32674e;border-radius:14px}
+.hint{color:#7a867e}
+.players{gap:12px}
+.player{background:#fbfcfa;border:1px solid #e1e8e1;border-radius:17px;box-shadow:0 4px 14px rgba(29,48,36,.035);color:#29372f}
+.player.active{outline:2px solid #4d8968;outline-offset:1px;background:#f0f7f1;box-shadow:0 0 0 5px rgba(65,128,91,.08)}
+.score{color:#2f7654;text-shadow:none;font-size:29px;font-variant-numeric:tabular-nums}
+.cards{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px}
+.card{min-height:190px;align-items:flex-start;text-align:left;gap:10px;background:#fff;color:#26352c;border:1px solid #e0e8df;outline:none;border-radius:18px;padding:15px;box-shadow:0 5px 18px rgba(28,48,35,.06);}
+.card:active{transform:translateY(1px);box-shadow:0 2px 8px rgba(28,48,35,.07)}
+.card .tag{align-self:flex-start;background:#eef5ef;color:#3b7052;border:1px solid #dce9de;letter-spacing:.3px;font-size:10px;padding:5px 8px}
+.card .emoji{font-size:27px;width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#f3f6f1;border:1px solid #e6ece4;box-shadow:none}
+.card b{font-size:15px;color:#24372b;line-height:1.35}
+.card small{font-size:12px;color:#718078;line-height:1.5;min-height:36px}
+.card .cost{color:#3f7958;font-size:10px;letter-spacing:.2px;margin-top:auto}
+.card:hover{transform:translateY(-3px);filter:none;border-color:#b9d1bf;box-shadow:0 12px 24px rgba(28,48,35,.09)}
+.card:disabled{filter:grayscale(.5);opacity:.6}
+.log{background:#fafcf9;border:1px solid #e4eae3;border-radius:14px;padding:14px;color:#758078}
+.code{letter-spacing:6px;color:#2f6c52;text-shadow:none}
+.footer{color:#9aa49d}
+#game .panel:first-of-type{padding:18px}
+#gameStatus{font-weight:700}
+#game .row>div{text-align:right}
+#turnLabel{color:#2e684d}
+#home .panel:first-of-type{max-width:720px;margin:0 auto}
+#home .panel:last-of-type{max-width:720px;margin:14px auto}
+#result .hero h1{color:#2f6c52}
+@media(min-width:760px){.wrap{padding-top:24px}#game .cards{grid-template-columns:repeat(3,minmax(0,1fr))}#game .panel{padding:24px}}
+@media(max-width:520px){.wrap{padding:10px 10px 30px}.top{top:6px;padding:11px 13px;border-radius:15px}.brand{font-size:12px;letter-spacing:1.2px}.pill{font-size:10px;padding:5px 8px}.hero{padding:34px 8px 22px}.hero h1{letter-spacing:-1px}.panel{padding:15px;margin:10px 0;border-radius:17px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{min-height:184px;padding:12px 10px}.card .emoji{width:43px;height:43px;font-size:25px}.card b{font-size:14px}.card small{font-size:11px}.row{gap:8px}button{padding:12px 13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 
 </head>
